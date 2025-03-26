@@ -5,6 +5,28 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+-- Key bindings configuration
+local keys = {
+	-- Delete whole line with Command+Backspace
+	{
+		key = "Backspace",
+		mods = "CMD",
+		action = wezterm.action.SendString("\x15"), -- Similar to CTRL+U (clear entire line)
+	},
+	-- Delete word backward with Alt+Backspace
+	{
+		key = "Backspace",
+		mods = "ALT",
+		action = wezterm.action.SendString("\x17"), -- CTRL+W (delete word backward)
+	},
+	-- Clear terminal buffer with Command+R
+	{
+		key = "r",
+		mods = "CMD",
+		action = wezterm.action.ClearScrollback("ScrollbackAndViewport"),
+	},
+}
+
 config = {
 	default_cursor_style = "BlinkingBar", -- Changed to blinking cursor
 	automatically_reload_config = true,
@@ -42,6 +64,9 @@ config = {
 	-- Window size settings (instead of full screen)
 	initial_cols = 120,
 	initial_rows = 35,
+	
+	-- Add keys configuration
+	keys = keys,
 	
 	background = {
 		{
