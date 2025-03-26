@@ -34,15 +34,15 @@ config = {
 	adjust_window_size_when_changing_font_size = false,
 	window_decorations = "RESIZE",
 	check_for_updates = false,
-	use_fancy_tab_bar = false, -- Re-enabled for better visuals 
+	use_fancy_tab_bar = false, -- Re-enabled for better visuals
 	tab_bar_at_bottom = false,
-	font_size = 12.5,
+	font_size = 13,
 	max_fps = 144, -- Increased back to 120 for smoother writing experience
 	-- Fixed font configuration
-	font = wezterm.font {
+	font = wezterm.font({
 		family = "JetBrainsMono Nerd Font",
 		weight = "Regular",
-	},
+	}),
 	enable_tab_bar = true,
 	window_padding = {
 		left = 3,
@@ -57,17 +57,17 @@ config = {
 	enable_kitty_graphics = true, -- Enable kitty graphics protocol
 	front_end = "WebGpu", -- Use GPU-accelerated rendering
 	webgpu_power_preference = "HighPerformance", -- Prioritize performance over power savings
-	
+
 	-- Window transparency
 	window_background_opacity = 0, -- Add overall window transparency
-	
+
 	-- Window size settings (instead of full screen)
 	initial_cols = 120,
 	initial_rows = 35,
-	
+
 	-- Add keys configuration
 	keys = keys,
-	
+
 	background = {
 		{
 			source = {
@@ -84,7 +84,7 @@ config = {
 		},
 		{
 			source = {
-				Color = "#282c35",
+				Color = wezterm.color.parse("#17191D"),
 			},
 			width = "100%",
 			height = "100%",
